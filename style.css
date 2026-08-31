@@ -1,0 +1,281 @@
+:root {
+  /* Backgrounds */
+  --color-bg: #111111;
+  --color-surface: #1a1a1a;
+  --color-input-bg: #141414;
+
+  /* Borders */
+  --color-border: #2e2e2e;
+  --color-border-light: #3a3a3a;
+
+  /* Text */
+  --color-text: #f3f4f6;
+  --color-text-muted: #a1a1aa;
+  --color-placeholder: #8a8a8a;
+
+  /* Primary */
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-primary-focus: rgba(59, 130, 246, 0.25);
+  --color-primary-soft: rgba(79, 140, 255, 0.12);
+  --color-primary-border: rgba(79, 140, 255, 0.25);
+  --color-primary-text: #ffffff;
+
+  /* Status */
+  --color-status-success: #59caa1;
+  --color-status-error: #ed7979;
+
+  /* Danger */
+  --color-danger: #f87171;
+  --color-danger-bg: rgba(248, 113, 113, 0.12);
+
+  /* Tags */
+  --color-tag-bg: #3f3f46;
+  --color-tag-text: #f4f4f5;
+  --color-tag-border: rgba(255, 255, 255, 0.06);
+
+  /* Shadow */
+  --shadow-card: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  /* Spacing */
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 2rem 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+button,
+input,
+textarea {
+  font: inherit;
+}
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+h1 {
+  font-size: 2.25rem;
+}
+h2 {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: var(--space-md);
+}
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+}
+input,
+textarea {
+  width: 100%;
+  padding: 0.65rem;
+  border: 1px solid var(--color-border-light);
+  border-radius: 8px;
+  background: var(--color-input-bg);
+  color: var(--color-text);
+  font-size: 0.9rem;
+}
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-placeholder);
+}
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-focus);
+}
+textarea {
+  resize: vertical;
+}
+button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+.container {
+  width: min(90%, 650px);
+  margin: 0 auto;
+}
+.app-header {
+  text-align: center;
+  margin-bottom: var(--space-lg);
+}
+.app-header p {
+  color: var(--color-text-muted);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+section {
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-card);
+}
+/* Add Note */
+.add-note-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.add-note-btn {
+  align-self: flex-end;
+  padding: 0.6rem 2rem;
+  margin-top: var(--space-sm);
+  border: none;
+  border-radius: 6px;
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.15s ease-out;
+}
+.add-note-btn:hover {
+  background: var(--color-primary-hover);
+}
+.add-note-status {
+  font-size: 0.9rem;
+  color: var(--color-placeholder);
+}
+.add-note-status.success {
+  color: var(--color-status-success);
+}
+.add-note-status.error {
+  color: var(--color-status-error);
+}
+/* Notes Controls */
+.notes-controls {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.notes-controls h3 {
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+.filter-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.filter-pill {
+  padding: 5px 15px;
+  border: 1px solid var(--color-border-light);
+  border-radius: 5px;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease-out,
+    border-color 0.2s ease-out,
+    color 0.2s ease-out;
+}
+.filter-pill.active {
+  font-weight: 500;
+}
+.filter-pill.active,
+.filter-pill:hover {
+  border-color: var(--color-primary-border);
+  background: var(--color-primary-soft);
+  color: var(--color-primary);
+}
+/* Notes */
+.notes-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+.note-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+}
+.note-card {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+  background: var(--color-surface);
+}
+.note-card header {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+.note-card header h3 {
+  font-weight: 500;
+  font-size: 1rem;
+}
+.delete-note-btn {
+  font-size: 0.85rem;
+  padding: 0.4rem 0.5rem;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-placeholder);
+  cursor: pointer;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
+}
+.delete-note-btn:hover {
+  background: var(--color-danger-bg);
+  color: var(--color-danger);
+}
+.note-card .content {
+  margin-bottom: var(--space-md);
+}
+.note-card .content p {
+  color: var(--color-text-muted);
+}
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+}
+.tag {
+  display: inline-flex;
+  padding: 2px 6px;
+  border: 1px solid var(--color-tag-border);
+  border-radius: 6px;
+  background: var(--color-tag-bg);
+  color: var(--color-tag-text);
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+.no-notes-message {
+  color: var(--color-text-muted);
+}
+.hidden {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+  .container {
+    width: calc(100% - 2rem);
+  }
+}
